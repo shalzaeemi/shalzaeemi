@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحتي الشخصية</title>
+    <title>شادي الزعيمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="icon" href="logo.png" type="image/png">
-<link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
 
     <style>
         /* تنسيق عام */
@@ -14,38 +14,42 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('my poto.png') center/cover no-repeat;
-            background-size: cover;
-            height: 100vh;
+            height: 100%;
             color: #fff;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            overflow-y: auto; /* لتفعيل التمرير */
         }
 
-        /* إضافة التمويه على الخلفية فقط */
+        /* إضافة التمويه على الخلفية */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed; /* تأكيد أن الخلفية ثابتة */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: inherit;
-            filter: blur(10px);
+            background: url('images/my poto.png') center/cover no-repeat;
+            filter: blur(20px);
             z-index: -1;
+            opacity: 0.7; /* لزيادة التظليل */
         }
 
         .container {
             position: relative;
             width: 90%;
             max-width: 500px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.8); /* التظليل الداكن */
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
             text-align: center;
+            z-index: 1;
+            margin-top: 70px;  /* تقليل المسافة من الأعلى */
+            margin-bottom: 70px; /* تقليل المسافة من الأسفل */
         }
 
         .profile-pic {
@@ -54,7 +58,7 @@
             border-radius: 50%;
             margin: 0 auto 20px;
             border: 5px solid #fff;
-            background: url('my poto.png') center/cover no-repeat;
+            background: url('images/my poto.png') center/cover no-repeat;
         }
 
         h1 {
@@ -71,6 +75,7 @@
         .social-icons {
             margin: 20px 0;
             display: flex;
+            flex-wrap: wrap; /* لتوزيع الأيقونات على صفين */
             justify-content: center;
             gap: 15px;
         }
@@ -95,56 +100,54 @@
             height: 24px;
         }
 
-        /* فيديوهات YouTube */
-        .video-section {
-            margin-top: 30px;
+        /* قائمة الأحداث القادمة */
+        .events-section {
+            margin-top: 40px;
         }
 
-        .main-video {
-            width: 100%;
-            height: 250px;
-            border-radius: 8px;
+        .events-title {
+            font-size: 22px;
+            color: #ffcccb;
             margin-bottom: 20px;
         }
 
-        .video-list {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-        }
-
-        .video-item {
-            flex: 0 0 auto;
-            width: 150px;
-            cursor: pointer;
-            text-align: left;
-            background: rgba(255, 255, 255, 0.1);
+        .event {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
 
-        .video-item:hover {
+        .event:hover {
             transform: scale(1.05);
         }
 
-        .video-item img {
-            width: 100%;
-            height: 80px;
-            border-radius: 8px 8px 0 0;
+        .event h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #ffcccb;
         }
 
-        .video-item span {
-            display: block;
-            padding: 10px;
+        .event p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .event .event-date {
+            font-size: 12px;
+            color: #bbb;
+        }
+
+        .footer {
             font-size: 14px;
             color: #fff;
+            margin-top: 30px;
         }
 
-        /* العنوان لقسم الفيديو */
-        .video-title {
-            font-size: 22px;
-            margin-bottom: 20px;
+        .footer a {
             color: #ffcccb;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -177,44 +180,59 @@
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram.png" alt="Telegram">
             </a>
             <a href="https://www.snapchat.com/add/shalzaeemi" target="_blank">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/snapchat-ghost.png" alt="Snapchat">
-            </a>
+    <img src="images/snapchat-icon.png" alt="Snapchat" style="width: 30px;">
+</a>
+
+
             <a href="https://api.whatsapp.com/send?phone=905343033725" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
             </a>
             <a href="mailto:shadi.s.alzaeemi@gmail.com" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Email">
             </a>
+            <!-- إضافة حساب Pinterest -->
+            <a href="https://www.pinterest.com/ShAlzaeemi/" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/pinterest.png" alt="Pinterest">
+            </a>
+            <!-- إضافة حساب Chess -->
+            <a href="https://chess.com/member/shalzaeemi" target="_blank">
+                <img src="images/Chess-icon.png" alt="Snapchat" style="width: 30px;">
+            </a>
+            <!-- إضافة حساب Discord -->
+            <a href="http://discord.com/channels/shalzaeemi" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
+            </a>
+            <a href="https://www.reddit.com/user/shalzaeemi/" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/reddit.png" alt="Reddit">
+            </a>
         </div>
 
-        <div class="video-section">
-            <h3 class="video-title">YouTube Videos</h3>
-            <iframe class="main-video" id="main-video" src="https://www.youtube.com/embed/5qzKaozM8ks" frameborder="0" allowfullscreen></iframe>
+        <!-- قسم الأحداث القادمة -->
+        <div class="events-section">
+            <h3 class="events-title">الأحداث القادمة</h3>
 
-            <div class="video-list">
-                <div class="video-item" onclick="changeVideo('5qzKaozM8ks')">
-                    <img src="https://img.youtube.com/vi/5qzKaozM8ks/0.jpg" alt="Video 1">
-                </div>
-                <div class="video-item" onclick="changeVideo('9_HaE9ptJ5U')">
-                    <img src="https://img.youtube.com/vi/9_HaE9ptJ5U/0.jpg" alt="Video 2">
-                </div>
-                <div class="video-item" onclick="changeVideo('pJ0auP7dbcY')">
-                    <img src="https://img.youtube.com/vi/pJ0auP7dbcY/0.jpg" alt="Video 3">
-                </div>
-                <div class="video-item" onclick="changeVideo('dOrELJQdj4Q')">
-                    <img src="https://img.youtube.com/vi/dOrELJQdj4Q/0.jpg" alt="Video 4">
-                </div>
-                <div class="video-item" onclick="changeVideo('CdtqrZwPDVw')">
-                    <img src="https://img.youtube.com/vi/CdtqrZwPDVw/0.jpg" alt="Video 5">
-                </div>
+            <div class="event">
+                <h3>ندوة تعريفية حول خدمات السفر</h3>
+                <p>في هذه الندوة، سنستعرض أحدث خدماتنا في مجال السفر والعروض المتوفرة. فرصة للتعرف على كل جديد في عالم السياحة.</p>
+                <p class="event-date">التاريخ: 15 ديسمبر 2024</p>
+            </div>
+
+            <div class="event">
+                <h3>ورشة عمل عن مهارات اتخاذ القرارات</h3>
+                <p>ورشة عمل تهدف إلى تعزيز مهارات التفكير النقدي والتحليلي، وتقديم أدوات جديدة لتحسين عملية اتخاذ القرارات.</p>
+                <p class="event-date">التاريخ: 25 ديسمبر 2024</p>
+            </div>
+
+            <div class="event">
+                <h3>دورة تدريبية عن القبولات الطلابية</h3>
+                <p>دورة تهدف لتقديم معلومات شاملة حول المنح الدراسية المتاحة للطلاب وكيفية التقديم للحصول عليها.</p>
+                <p class="event-date">التاريخ: 5 يناير 2025</p>
             </div>
         </div>
-    </div>
 
-    <script>
-        function changeVideo(videoId) {
-            document.getElementById('main-video').src = `https://www.youtube.com/embed/${videoId}`;
-        }
-    </script>
+        <div class="footer">
+            <p>&copy; 2024 <a href="mailto:shadi.s.alzaeemi@gmail.com">شادي الزعيمي</a>. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
 </body>
 </html>
