@@ -6,7 +6,7 @@
     <title>صفحتي الشخصية</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="icon" href="logo.png" type="image/png">
-<link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/x-icon">
 
     <style>
         /* تنسيق عام */
@@ -14,17 +14,16 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('my poto.png') center/cover no-repeat;
-            background-size: cover;
             height: 100vh;
             color: #fff;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
-        /* إضافة التمويه على الخلفية فقط */
+        /* إضافة التمويه على الخلفية */
         body::before {
             content: "";
             position: absolute;
@@ -32,16 +31,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: inherit;
-            filter: blur(25px);
+            background: url('my poto.png') center/cover no-repeat;
+            filter: blur(20px);
             z-index: -1;
+            opacity: 0.7; /* لزيادة التظليل */
         }
 
         .container {
             position: relative;
             width: 90%;
             max-width: 500px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.8); /* التظليل الداكن */
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
@@ -146,6 +146,18 @@
             margin-bottom: 20px;
             color: #ffcccb;
         }
+
+        /* تنسيق قسم الحقوق */
+        .footer {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #ffcccb;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -209,11 +221,15 @@
                 </div>
             </div>
         </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 جميع الحقوق محفوظة. <a href="https://shalzaeemi.github.io/">shalzaeemi</a></p>
+        </div>
     </div>
 
     <script>
         function changeVideo(videoId) {
-            document.getElementById('main-video').src = `https://www.youtube.com/embed/${videoId}`;
+            document.getElementById('main-video').src = "https://www.youtube.com/embed/" + videoId;
         }
     </script>
 </body>
