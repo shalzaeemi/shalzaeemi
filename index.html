@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحتي الشخصية</title>
+    <title>شادي الزعيمي</title> <!-- تم تغيير عنوان التبويب إلى اسمك الشخصي -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="icon" href="logo.png" type="image/png">
+    <link rel="icon" href="logo.png" type="image/png">
     <link rel="icon" href="logo.png" type="image/x-icon">
 
     <style>
@@ -14,19 +14,20 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            height: 100vh;
+            height: 100%;
             color: #fff;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            overflow-y: auto; /* لتفعيل التمرير */
         }
 
         /* إضافة التمويه على الخلفية */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed; /* تأكيد أن الخلفية ثابتة */
             top: 0;
             left: 0;
             width: 100%;
@@ -46,6 +47,9 @@
             border-radius: 12px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
             text-align: center;
+            z-index: 1;
+            margin-top: 70px;  /* تقليل المسافة من الأعلى */
+            margin-bottom: 70px; /* تقليل المسافة من الأسفل */
         }
 
         .profile-pic {
@@ -95,59 +99,45 @@
             height: 24px;
         }
 
-        /* فيديوهات YouTube */
-        .video-section {
-            margin-top: 30px;
+        /* قائمة الأحداث القادمة */
+        .events-section {
+            margin-top: 40px;
         }
 
-        .main-video {
-            width: 100%;
-            height: 250px;
-            border-radius: 8px;
+        .events-title {
+            font-size: 22px;
+            color: #ffcccb;
             margin-bottom: 20px;
         }
 
-        .video-list {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-        }
-
-        .video-item {
-            flex: 0 0 auto;
-            width: 150px;
-            cursor: pointer;
-            text-align: left;
-            background: rgba(255, 255, 255, 0.1);
+        .event {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
 
-        .video-item:hover {
+        .event:hover {
             transform: scale(1.05);
         }
 
-        .video-item img {
-            width: 100%;
-            height: 80px;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .video-item span {
-            display: block;
-            padding: 10px;
-            font-size: 14px;
-            color: #fff;
-        }
-
-        /* العنوان لقسم الفيديو */
-        .video-title {
-            font-size: 22px;
-            margin-bottom: 20px;
+        .event h3 {
+            margin: 0;
+            font-size: 18px;
             color: #ffcccb;
         }
 
-        /* تنسيق قسم الحقوق */
+        .event p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .event .event-date {
+            font-size: 12px;
+            color: #bbb;
+        }
+
         .footer {
             font-size: 14px;
             color: #fff;
@@ -199,31 +189,31 @@
             </a>
         </div>
 
-        <div class="video-section">
-            <h3 class="video-title">YouTube Videos</h3>
-            <iframe class="main-video" id="main-video" src="https://www.youtube.com/embed/5qzKaozM8ks" frameborder="0" allowfullscreen></iframe>
+        <!-- قسم الأحداث القادمة -->
+        <div class="events-section">
+            <h3 class="events-title">الأحداث القادمة</h3>
 
-            <div class="video-list">
-                <div class="video-item" onclick="changeVideo('5qzKaozM8ks')">
-                    <img src="https://img.youtube.com/vi/5qzKaozM8ks/0.jpg" alt="Video 1">
-                </div>
-                <div class="video-item" onclick="changeVideo('9_HaE9ptJ5U')">
-                    <img src="https://img.youtube.com/vi/9_HaE9ptJ5U/0.jpg" alt="Video 2">
-                </div>
-                <div class="video-item" onclick="changeVideo('pJ0auP7dbcY')">
-                    <img src="https://img.youtube.com/vi/pJ0auP7dbcY/0.jpg" alt="Video 3">
-                </div>
-                <div class="video-item" onclick="changeVideo('dOrELJQdj4Q')">
-                    <img src="https://img.youtube.com/vi/dOrELJQdj4Q/0.jpg" alt="Video 4">
-                </div>
-                <div class="video-item" onclick="changeVideo('CdtqrZwPDVw')">
-                    <img src="https://img.youtube.com/vi/CdtqrZwPDVw/0.jpg" alt="Video 5">
-                </div>
+            <div class="event">
+                <h3>ندوة تعريفية حول خدمات السفر</h3>
+                <p>في هذه الندوة، سنستعرض أحدث خدماتنا في مجال السفر والعروض المتوفرة. فرصة للتعرف على كل جديد في عالم السياحة.</p>
+                <p class="event-date">التاريخ: 15 ديسمبر 2024</p>
+            </div>
+
+            <div class="event">
+                <h3>ورشة عمل حول تحليل البيانات</h3>
+                <p>ورشة عملية لتعلم مهارات تحليل البيانات باستخدام الأدوات الحديثة وكيفية استخدام البيانات في اتخاذ القرارات.</p>
+                <p class="event-date">التاريخ: 22 ديسمبر 2024</p>
+            </div>
+
+            <div class="event">
+                <h3>لقاء تعريفي بالخدمات التعليمية والمنح</h3>
+                <p>تعرف على أفضل المنح الدراسية وفرص الدراسة في الخارج التي نقدمها وكيفية التقديم لها.</p>
+                <p class="event-date">التاريخ: 5 يناير 2025</p>
             </div>
         </div>
-        
+
         <div class="footer">
-            <p>&copy; 2024 جميع الحقوق محفوظة. <a href="https://shalzaeemi.github.io/">shalzaeemi</a></p>
+            <p>&copy; 2024 جميع الحقوق محفوظة. <a href="https://shalzaeemi.com">موقع شادي الزعيمي</a></p>
         </div>
     </div>
 
