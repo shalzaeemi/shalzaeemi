@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شادي الزعيمي</title> <!-- تم تغيير عنوان التبويب إلى اسمك الشخصي -->
+    <title>شادي الزعيمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="icon" href="logo.png" type="image/x-icon">
@@ -75,6 +75,7 @@
         .social-icons {
             margin: 20px 0;
             display: flex;
+            flex-wrap: wrap; /* لتوزيع الأيقونات على صفين */
             justify-content: center;
             gap: 15px;
         }
@@ -187,6 +188,10 @@
             <a href="mailto:shadi.s.alzaeemi@gmail.com" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Email">
             </a>
+            <!-- إضافة حساب Reddit -->
+            <a href="https://www.reddit.com/user/shalzaeemi/" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/reddit.png" alt="Reddit">
+            </a>
         </div>
 
         <!-- قسم الأحداث القادمة -->
@@ -219,7 +224,8 @@
 
     <script>
         function changeVideo(videoId) {
-            document.getElementById('main-video').src = "https://www.youtube.com/embed/" + videoId;
+            var videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         }
     </script>
 </body>
