@@ -115,15 +115,38 @@
             height: 24px;
         }
 
-        /* قائمة الخبرات */
-        .events-section {
+        /* القائمة */
+		.event-section {
+            margin-top: 40px;
+        }
+		
+		 .event-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+		
+        .Lists-section {
             margin-top: 40px;
         }
 
-        .events-title {
+        .Lists-title {
             font-size: 22px;
             color: #ffcccb;
             margin-bottom: 20px;
+            cursor: pointer; /* إضافة cursor لتوضيح أنه قابل للضغط */
+        }
+
+
+.event:hover {
+            transform: scale(1.05);
+        }
+
+        .Lists-list {
+            display: none; /* إخفاء القائمة في البداية */
+            margin-top: 20px;
         }
 
         .event {
@@ -131,11 +154,6 @@
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .event:hover {
-            transform: scale(1.05);
         }
 
         .event h3 {
@@ -144,27 +162,24 @@
             color: #ffcccb;
         }
 
-        .event p {
-            margin: 10px 0;
-            font-size: 14px;
+        .toggle-btn {
+            margin-top: 10px;
+            cursor: pointer;
         }
 
-        .event .event-date {
-            font-size: 12px;
-            color: #bbb;
+        .toggle-btn::before {
+            content: '▼'; /* سهم لأسفل */
+            font-size: 20px;
+            display: inline-block;
+            margin-left: 10px;
         }
 
-        .footer {
-            font-size: 14px;
-            color: #fff;
-            margin-top: 30px;
+        .toggle-btn.active::before {
+            content: '▲'; /* سهم لأعلى */
         }
 
-        .footer a {
-            color: #ffcccb;
-            text-decoration: none;
-        }
 		
+
 		/* قائمة الدعم */
 		
 		.cop-section {
@@ -270,6 +285,18 @@
             height: 50px;
         }
     
+			/* قائمة الحقوق */
+	  .footer {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #ffcccb;
+            text-decoration: none;
+        }
+		
 
     </style>
 </head>
@@ -340,47 +367,65 @@
         </div>
 
         <!-- قسم الأحداث القادمة -->
-        <div class="events-section">
-            <h3 class="events-title">خدمات نقدمها</h3>
+        <div class="event-section">
 
-            <div class="event">
-                <h3>تحليل البيانات</h3>
-                <p> أقدم خدمات تحليل البيانات باستخدام أدوات متقدمة مثل Excel، Power BI، وPython. أساعد الشركات في جمع وتحليل البيانات لاستخلاص رؤى دقيقة تساعدهم في اتخاذ قرارات استراتيجية. كما أقدم تقارير ودراسات جدوى حول المشاريع التجارية بناءً على البيانات المتاحة..</p>
-                <p class="event-date">..قدّم عليه الآن..</p>
-            </div>
+		            <h3 class="Lists-title toggle-btn">الخدمات</h3>
+            <div class="Lists-list">
 
-            <div class="event">
-                <h3>الفيز</h3>
-                <p>أقدم خدمات متكاملة لاستخراج جميع أنواع الفيز، بما في ذلك تأشيرات الحج والعمرة، تأشيرات العمل، السياحة، الدراسة، بالإضافة إلى تأشيرات العلاج. كما أساعد في الحصول على دعوات سياحية وطلابية، وكذلك تقديم التقارير الطبية اللازمة لإجراءات التأشيرات العلاجية.</p>
-                <p class="event-date">..قدّم عليه الآن..</p>
-            </div>
+                <div class="event">
+                    <h3>تحليل البيانات</h3>
+                    <p> أقدم خدمات تحليل البيانات باستخدام أدوات متقدمة مثل Excel، Power BI، وPython. أساعد الشركات في جمع وتحليل البيانات لاستخلاص رؤى دقيقة تساعدهم في اتخاذ قرارات استراتيجية.</p>
+					     <p class="event-date">..قدّم عليه الآن..</p>
 
-            <div class="event">
-                <h3> القبولات الطلابية</h3>
-                <p>أساعد الطلاب في الحصول على قبول طلابي من أفضل الجامعات في أوروبا، آسيا، وأمريكا. تشمل الخدمة التوجيه الكامل حول شروط القبول، المستندات المطلوبة، وآلية التقديم. بالإضافة إلى ذلك، أقدم استشارات حول المنح الدراسية الممولة وغير الممولة، مع مساعدة في التقديم لها للحصول على أفضل الفرص التعليمية..</p>
-                <p class="event-date">..قدّم عليه الآن..</p>
-            </div>
-			
-			<div class="event">
-                <h3>التصميم</h3>
-                <p>أقدم خدمات تصميم متكاملة تشمل تصميم المواقع الإلكترونية ذات الواجهات المتطورة، وتصاميم الموشن جرافيك (الرسوم المتحركة) لعرض الأفكار بطريقة مبتكرة وجذابة. كما أقدم تصاميم الشعارات، الهويات البصرية، العروض التقديمية، والمطبوعات مثل البروشورات والكتيبات، بهدف تقديم حلول تصميمية احترافية تساهم في تعزيز هوية العلامات التجارية.</p>
-                <p class="event-date">..قدّم عليه الآن..</p>
-            </div>
-			
-			<div class="event">
-                <h3> الاستشارات</h3>
-                <p>أقدم استشارات متكاملة في مجالات السياحة، التعليم، العلاج، والعمل، حيث أساعد العملاء في اختيار الوجهات السياحية المثالية، الحصول على قبولات دراسية من أفضل الجامعات، البحث عن فرص علاجية في الخارج، وتقديم النصائح حول فرص العمل الدولية وكيفية الحصول على التأشيرات اللازمة..</p>
-                <p class="event-date">..قدّم عليه الآن..</p>
-            </div>
-			</div>
+                </div>
+
+                <div class="event">
+                    <h3>الفيز</h3>
+                    <p>أقدم خدمات متكاملة لاستخراج جميع أنواع الفيز، بما في ذلك تأشيرات الحج والعمرة، تأشيرات العمل، السياحة، الدراسة، بالإضافة إلى تأشيرات العلاج.</p>
+					     <p class="event-date">..قدّم عليه الآن..</p>
+
+                </div>
+
+                <div class="event">
+                    <h3>القبولات الطلابية</h3>
+                    <p>أساعد الطلاب في الحصول على قبول طلابي من أفضل الجامعات في أوروبا، آسيا، وأمريكا. تشمل الخدمة التوجيه الكامل حول شروط القبول.</p>
+					     <p class="event-date">..قدّم عليه الآن..</p>
+
+                </div>
+
+                <div class="event">
+                    <h3>التصميم</h3>
+                    <p>أقدم خدمات تصميم متكاملة تشمل تصميم المواقع الإلكترونية وتصاميم الموشن جرافيك.</p>
+					     <p class="event-date">..قدّم عليه الآن..</p>
+
+                </div>
+
+                <div class="event">
+                    <h3>الاستشارات</h3>
+                    <p>أقدم استشارات في مجالات السياحة، التعليم، العلاج، والعمل، حيث أساعد العملاء في اختيار الوجهات السياحية المثالية.</p>
+					     <p class="event-date">..قدّم عليه الآن..</p>
+
+                </div>
+        </div>
+		</div>
+
+    <script>
+        // جافا سكريبت للتحكم في إظهار وإخفاء القائمة
+        document.querySelector('.Lists-title').addEventListener('click', function() {
+            var ListsList = document.querySelector('.Lists-list');
+            var toggleBtn = document.querySelector('.toggle-btn');
+            ListsList.style.display = (ListsList.style.display === 'none' || ListsList.style.display === '') ? 'block' : 'none';
+            toggleBtn.classList.toggle('active');
+        });
+    </script>
 
 
-
-<!-- قسم الأحداث القادمة -->
+<!-- قسم الدعم  -->
        
 <body>
-      
-            <h3 class="events-title">إدعمني بكوب قهوه ليستمر العطاء</h3>
+             
+      <div class="cop-section">
+            <h3 class="cop-title">إدعمني بكوب قهوه ليستمر العطاء</h3>
 			
     <div class="cop">
 	<div class="cop-section">
@@ -445,6 +490,7 @@
             });
         </script>
     </div>
+	</div>
 	</div>
 	<!-- قسم الحقوق -->
 	<body>
