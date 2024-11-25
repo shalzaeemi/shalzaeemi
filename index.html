@@ -116,6 +116,18 @@
         }
 
         /* قائمة الخبرات */
+		.event-section {
+            margin-top: 40px;
+        }
+		
+		 .event-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+		
         .events-section {
             margin-top: 40px;
         }
@@ -125,6 +137,11 @@
             color: #ffcccb;
             margin-bottom: 20px;
             cursor: pointer; /* إضافة cursor لتوضيح أنه قابل للضغط */
+        }
+
+
+.event:hover {
+            transform: scale(1.05);
         }
 
         .events-list {
@@ -347,10 +364,11 @@
         </div>
 
         <!-- قسم الأحداث القادمة -->
-        <div class="events-section">
-		 <div class="event">
-            <h3 class="events-title toggle-btn">الخدمات</h3>
+        <div class="event-section">
+
+		            <h3 class="events-title toggle-btn">الخدمات</h3>
             <div class="events-list">
+
                 <div class="event">
                     <h3>تحليل البيانات</h3>
                     <p> أقدم خدمات تحليل البيانات باستخدام أدوات متقدمة مثل Excel، Power BI، وPython. أساعد الشركات في جمع وتحليل البيانات لاستخلاص رؤى دقيقة تساعدهم في اتخاذ قرارات استراتيجية.</p>
@@ -376,8 +394,8 @@
                     <p>أقدم استشارات في مجالات السياحة، التعليم، العلاج، والعمل، حيث أساعد العملاء في اختيار الوجهات السياحية المثالية.</p>
                 </div>
             </div>
-        </div>
-  
+        
+  </div>
 
     <script>
         // جافا سكريبت للتحكم في إظهار وإخفاء القائمة
@@ -394,8 +412,9 @@
 <!-- قسم الأحداث القادمة -->
        
 <body>
+             
       <div class="cop-section">
-            <h3 class="events-title">إدعمني بكوب قهوه ليستمر العطاء</h3>
+            <h3 class="cop-title">إدعمني بكوب قهوه ليستمر العطاء</h3>
 			
     <div class="cop">
 	<div class="cop-section">
