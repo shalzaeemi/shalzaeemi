@@ -24,21 +24,31 @@
             overflow-y: auto; /* لتفعيل التمرير */
         }
 
-        /* إضافة التمويه على الخلفية */
+ /* إضافة الفيديو كخلفية */
         body::before {
             content: "";
-            position: fixed; /* تأكيد أن الخلفية ثابتة */
+            position: absolute; /* وضع الفيديو في الخلفية */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/my poto.png') center/cover no-repeat;
-            filter: blur(20px);
             z-index: -1;
-            opacity: 0.7; /* لزيادة التظليل */
         }
 
-        .container {
+        /* تعيين الفيديو في الخلفية */
+        .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;  /* تأكد من أن قيمة z-index سلبية */
+}
+
+      
+
+        .container-section {
             position: relative;
             width: 90%;
             max-width: 500px;
@@ -101,7 +111,7 @@
             height: 24px;
         }
 
-        /* قائمة الأحداث القادمة */
+        /* قائمة الخبرات */
         .events-section {
             margin-top: 40px;
         }
@@ -150,15 +160,133 @@
             color: #ffcccb;
             text-decoration: none;
         }
+		
+		/* قائمة الدعم */
+		
+		.cop-section {
+            margin-top: 40px;
+        }
+		
+		 .cop-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cop:hover {
+            transform: scale(1.05);
+        }
+		
+		
+        .coffee-cup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .cup {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 255);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 2px solid #4b8aff;
+            color: #4b8aff; /* النص أزرق بشكل افتراضي */
+        }
+
+        .cup:hover {
+            transform: scale(1.1);
+        }
+
+        .cup.active {
+            background-color: #4b8aff; /* لون الأزرق عند الضغط */
+            color: #fff; /* لون النص أبيض عند الضغط */
+        }
+
+        .total-cups {
+            margin-top: 0px;
+            background-color: rgba(255, 255, 255, 255);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #4b8aff; /* النص أزرق بشكل افتراضي */
+            border: 2px solid #4b8aff;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .input-cups {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: none;
+            color: #4b8aff; /* النص أزرق داخل المدخل */
+            font-size: 20px;
+            text-align: center;
+            outline: none;
+            z-index: 1;
+        }
+
+        .input-cups:focus {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-donate {
+            background-color: #4b8aff; /* زر الدعم الأزرق */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .cup-image {
+            width: 50px;
+            height: 50px;
+        }
+    
+
     </style>
 </head>
 <body>
-    <div class="container">
+
+<!-- الفيديو كخلفية -->
+    <video class="background-video" autoplay loop muted playsinline>
+    <source src="images/my_poto.mp4" type="video/mp4">
+    <source src="images/my_poto.webm" type="video/webm">
+    <source src="images/my_poto.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+</video>
+
+	
+    <div class="container-section">
         <div class="profile-pic"></div>
         <h1>شادي الزعيمي</h1>
         <h2>@shalzaeemi</h2>
 
         <div class="social-icons">
+		            <!-- روابط الأيقونات الاجتماعية -->
             <a href="https://facebook.com/shalzaeemi" target="_blank">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook">
             </a>
@@ -243,122 +371,18 @@
 
 
 
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دعم شادي الزعيمي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/logo.png" type="image/png">
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
-
-    <style>
-     
-      
-        .coffee-cup {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .cup {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            border: 2px solid #fff;
-        }
-
-        .cup:hover {
-            transform: scale(1.1);
-        }
-
-        .cup.active {
-            background-color: #4b8aff; /* لون الأزرق عند الضغط */
-        }
-
-        .total-cups {
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.6);
-            width: 60px; /* الحجم الجديد ليكون مطابق لباقي الدوائر */
-            height: 60px; /* الحجم الجديد */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: #333;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .input-cups {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: transparent;
-            border: none;
-            color: #333;
-            font-size: 20px;
-            text-align: center;
-            outline: none;
-            z-index: 1;
-        }
-
-        .input-cups:focus {
-            background-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .btn-donate {
-            background-color: #4b8aff; /* زر الدعم الأزرق */
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        .btn-donate:hover {
-            background-color: #357ad8;
-        }
-
-        .cup-image {
-            width: 40px; /* حجم الكوب مطابق لحجم الدائرة */
-            height: 40px;
-        }
-
-        /* وضع الدائرة الرابعة في نفس المكان */
-        .coffee-cup .total-cups {
-            order: 4; /* ترتيب الدائرة الرابعة في الصف */
-        }
-    </style>
-</head>
+<!-- قسم الأحداث القادمة -->
+       
 <body>
-    <div class="container">
-        <h1>دعم شادي الزعيمي</h1>
-
-        <div class="coffee-cup">
-            <!-- صورة كوب واحد فقط على اليسار -->
+      
+            <h3 class="events-title">إدعمني بكوب قهوه ليستمر العطاء</h3>
+			
+    <div class="cop">
+	<div class="cop-section">
+	
+                <div class="coffee-cup">
             <img src="https://img.icons8.com/ios-filled/50/ffffff/coffee.png" alt="Cup" class="cup-image">
-            <!-- علامة الضرب بين صورة الكوب ورقم 1 فقط -->
-            <span class="operator">x</span>
-            <!-- أكواب القهوة -->
+            <span class="operator">X</span>
             <div class="cup" data-cups="1">
                 <span>1</span>
             </div>
@@ -368,13 +392,11 @@
             <div class="cup" data-cups="5">
                 <span>5</span>
             </div>
-            <!-- دائرة لعدد الأكواب المختارة -->
             <div class="total-cups" id="totalCups">
                 <input type="number" id="inputCups" class="input-cups" value="0" min="0" />
             </div>
         </div>
 
-        <!-- زر الدفع -->
         <button class="btn-donate" id="donateBtn">دعم 0 دولار</button>
 
         <script>
@@ -384,37 +406,33 @@
             const totalCupsDisplay = document.getElementById('totalCups');
             const inputCups = document.getElementById('inputCups');
 
-            // تحديد الكوب المختار عند الضغط
             cups.forEach(cup => {
                 cup.addEventListener('click', () => {
                     selectedCups = parseInt(cup.dataset.cups);
                     cups.forEach(c => c.classList.remove('active'));
                     cup.classList.add('active');
-                    inputCups.value = selectedCups; // تحديث المدخل بالقيمة المختارة
-                    updateDonationAmount(); // تحديث المبلغ في الزر
+                    inputCups.value = selectedCups;
+                    updateDonationAmount();
                 });
             });
 
-            // تحديث المبلغ عند إدخال عدد الأكواب يدويًا داخل الدائرة
             inputCups.addEventListener('input', () => {
                 const value = parseInt(inputCups.value);
                 if (value && value >= 0) {
                     selectedCups = value;
                     cups.forEach(c => c.classList.remove('active'));
-                    updateDonationAmount(); // تحديث المبلغ في الزر
+                    updateDonationAmount();
                 }
             });
 
-            // تحديث المبلغ في زر الدفع
             function updateDonationAmount() {
-                const totalAmount = selectedCups * 5; // 5 دولارات لكل كوب
-                donateBtn.textContent = `دعم ${totalAmount} دولار`; // تحديث الزر ليعرض المبلغ
+                const totalAmount = selectedCups * 5;
+                donateBtn.textContent = `دعم ${totalAmount} دولار`;
             }
 
-            // التعامل مع زر الدفع
             donateBtn.addEventListener('click', () => {
                 if (selectedCups > 0) {
-                    const paypalUrl = `https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID&amount=${selectedCups * 5}`; // قم بتحديد ID زر PayPal الفعلي هنا
+                    const paypalUrl = `https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID&amount=${selectedCups * 5}`;
                     window.location.href = paypalUrl;
                 } else {
                     alert('يرجى تحديد عدد الأكواب أولاً');
@@ -422,14 +440,15 @@
             });
         </script>
     </div>
-</body>
-</html>
-
-        <div class="footer">
-            <p>&copy; 2024 <a href="https://shalzaeemi.github.io/">shalzaeemi</a>. جميع الحقوق محفوظة.</p>
-        </div>
+	</div>
+	<!-- قسم الحقوق -->
+	<body>
+	
+    <div class="footer">
+        <p>&copy; 2024 <a href="https://shalzaeemi.github.io/">shalzaeemi</a>. جميع الحقوق محفوظة.</p>
     </div>
 </body>
 </html>
+
 
 
